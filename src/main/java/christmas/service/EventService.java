@@ -65,6 +65,6 @@ public class EventService {
 	}
 
 	public String getBadgeName() {
-		return eventRepository.getBadgeName().orElse(NONE.getValue());
+		return eventRepository.getBadgeName();
 	}
 }

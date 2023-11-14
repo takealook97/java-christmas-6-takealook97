@@ -1,8 +1,9 @@
 package christmas.repository;
 
+import static christmas.view.constant.OutputConstant.*;
+
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.Optional;
 
 import christmas.constant.Menu;
 import christmas.domain.Badge;
@@ -52,7 +53,10 @@ public class EventRepository {
 		return order.getPriceSum() - benefit.getSumDiscount();
 	}
 
-	public Optional<String> getBadgeName() {
-		return Optional.of(badge.getName());
+	public String getBadgeName() {
+		if (badge == null || badge.getName() == null) {
+			return NONE.getValue();
+		}
+		return badge.getName();
 	}
 }
