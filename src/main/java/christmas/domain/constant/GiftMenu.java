@@ -22,4 +22,8 @@ public enum GiftMenu {
 	public long getCount() {
 		return count;
 	}
+
+	public long getPrice() {
+		return menu.getPrice() * count;
+	}
 }
