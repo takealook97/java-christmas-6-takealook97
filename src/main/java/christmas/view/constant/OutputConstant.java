@@ -1,6 +1,6 @@
 package christmas.view.constant;
 
-import static christmas.constant.EventTime.*;
+import static christmas.constant.EventYearAndMonth.*;
 
 public enum OutputConstant {
 	EVENT_PREVIEW_MSG("에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"),
