@@ -152,15 +152,6 @@
 
 ## 💡 Domain
 
-### Reservation
-
-- 예약과 관련된 전반적인 정보를 캡슐화 한 클래스
-- [ ] VisitDate
-- [ ] Order
-- [ ] Benefit
-- [ ] ```public long getPaymentResult();``` -- 삭제!!!
-    - 할인 후 예상 결제 금액 반환
-
 ### VisitDate
 
 - 방문 날짜를 담을 클래스
@@ -275,45 +266,45 @@
 ### EventTime
 
 - 이벤트가 진행되는 시기를 설정할 Enum으로, 시작날짜, 종료 날짜 정보 또한 가진다.
-- [ ] EVENT_YEAR
-- [ ] EVENT_MONTH
-- [ ] EVENT_START_DAY
-- [ ] EVENT_END_DAY
+- [x] EVENT_YEAR
+- [x] EVENT_MONTH
+- [x] EVENT_START_DAY
+- [x] EVENT_END_DAY
 
 ### OrderConstant
 
 - 주문 입력 시 활용할 Enum
-- [ ] EVENT_INIT_PRICE(10000)
-- [ ] ORDER_AMOUNT_LIMIT(20)
+- [x] EVENT_INIT_PRICE(10000)
+- [x] ORDER_AMOUNT_LIMIT(20)
 
 ### GiftMenuConstant
 
 - 증정 메뉴 Enum으로, 메뉴와 개수를 가진다.
 - Menu menu, int count
-- [ ] GIFT(CHAMPAGNE, 1)
+- [x] GIFT(CHAMPAGNE, 1)
 
-### BenifitConstant
+### BenefitConstant
 
 - 혜택 관련 Enum
-- [ ] D_DAY(25)
+- [x] D_DAY(25)
     - 크리스마스 당일 -> d-day 이벤트 종료날짜
-- [ ] DISCOUNT_INIT_PRICE (1000)
+- [x] DISCOUNT_INIT_PRICE (1000)
     - d-day 시작 할인 금액
-- [ ] DAILY_DISCOUNT_INCREMENT(100)
+- [x] DAILY_DISCOUNT_INCREMENT(100)
     - 매일 100원씩 증가
-- [ ] STAR_DISCOUNT(1000)
+- [x] STAR_DISCOUNT(1000)
     - 특별 할인
-- [ ] GIFT_QUALIFYING_PRICE(120000)
+- [x] GIFT_QUALIFYING_PRICE(120000)
     - 증정 메뉴 기준
-- [ ] YEAR_BASED_DISCOUNT(이벤트 진행 년도)
+- [x] YEAR_BASED_DISCOUNT(이벤트 진행 년도)
     - EventTime에서 가져온 값으로 지정
 
 ### BadgeConstant
 
 - String name, long qualifyingPrice
-- [ ] STAR_BADGE(”별”, 5000)
-- [ ] TREE_BADGE(”트리”, 10000)
-- [ ] SANTA_CLAUS_BADGE(”산타”, 20000)
+- [x] STAR_BADGE(”별”, 5000)
+- [x] TREE_BADGE(”트리”, 10000)
+- [x] SANTA_CLAUS_BADGE(”산타”, 20000)
 
 <br>
 
@@ -322,15 +313,16 @@
 ### Category
 
 - 카테고리 이름을 담을 Enum
-- [ ] Appetizer, Main, Dessert, Beverage
+- [x] Appetizer, Main, Dessert, Beverage
 
 ### Menu
 
 - String category (Category Enum 활용하기)
 - String name
 - Long price
-- [ ] 전체 메뉴 상수처리
-- [ ] getMenuByName 메서드 (+ 예외 처리)
+- [x] 전체 메뉴 상수처리
+- [x] of 메서드
+  - 메뉴이름을 기반으로 탐색하는 메서드 (+ 예외처리)
 
 <br>
 
@@ -353,38 +345,42 @@
 
 ### InputConstant
 
-- [ ] DAY_REQUEST : `안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.\\n12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)`
+- [x] DAY_REQUEST : `안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.\\n12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)`
     - 12월의 경우 EventTime Enum에서 가져와서 상수에 넣기
-- [ ] ORDER_REQUEST : `주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`
-- [ ] BONUS_REQUEST : `보너스 번호를 입력해 주세요.`
-- [ ] INPUT_MENU_DELIMITER : `,`
-- [ ] MENU_COUNT_SEPARATOR : `-`
+- [x] ORDER_REQUEST : `주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`
+- [x] BONUS_REQUEST : `보너스 번호를 입력해 주세요.`
+- [x] INPUT_MENU_DELIMITER : `,`
+- [x] MENU_COUNT_SEPARATOR : `-`
 
 ### OutputConstant
 
 - 출력에 필요한 상수들을 담은 Enum 클래스이다.
-- [ ] EVENT_PREVIEW_MSG : `에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`
-- [ ] ORDERED_MENU_HEADER : `<주문 메뉴>`
-- [ ] ORDER_PRICE_SUM_HEADER : `<할인 전 총주문 금액>`
-- [ ] GIFT_MENU_HEADER : `<증정 메뉴>`
-- [ ] BENEFIT_HEADER : `<혜택 내역>`
-- [ ] D_DAY_DISCOUNT_MSG : `크리스마스 디데이 할인: `
-- [ ] WEEK_DAY_DISCOUNT_MSG : `평일 할인: `
-- [ ] WEEKEND_DISCOUNT_MSG : `주말 할인: `
-- [ ] SPECIAL_DISCOUNT_MSG : `특별 할인: `
-- [ ] GIFT_EVENT_MSG : `증정 이벤트: `
-- [ ] BENEFIT_PRICE_SUM_HEADER : `<총혜택 금액>`
-- [ ] AFTER_DISCOUNT_HEADER : `<할인 후 예상 결제 금액>`
-- [ ] EVENT_BADGE_HEADER : `<12월 이벤트 배지>`
+- [x] EVENT_PREVIEW_MSG : `에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`
+- [x] ORDERED_MENU_HEADER : `<주문 메뉴>`
+- [x] ORDER_PRICE_SUM_HEADER : `<할인 전 총주문 금액>`
+- [x] GIFT_MENU_HEADER : `<증정 메뉴>`
+- [x] BENEFIT_HEADER : `<혜택 내역>`
+- [x] D_DAY_DISCOUNT_MSG : `크리스마스 디데이 할인: `
+- [x] WEEK_DAY_DISCOUNT_MSG : `평일 할인: `
+- [x] WEEKEND_DISCOUNT_MSG : `주말 할인: `
+- [x] SPECIAL_DISCOUNT_MSG : `특별 할인: `
+- [x] GIFT_EVENT_MSG : `증정 이벤트: `
+- [x] BENEFIT_PRICE_SUM_HEADER : `<총혜택 금액>`
+- [x] AFTER_DISCOUNT_HEADER : `<할인 후 예상 결제 금액>`
+- [x] EVENT_BADGE_HEADER : `<12월 이벤트 배지>`
     - 12월 EventTime에서 가져와서 적용
-- [ ] NONE : `없음`
-- [ ] PRICE_PATTERN : `#,###`
-- [ ] CURRENCY : `원`
+- [x] NONE : `없음`
+- [x] PRICE_PATTERN : `#,###`
+- [x] CURRENCY : `원`
 
 <br>
 
 ## 💡 Utility
 
+### DateUtil
+- [x] 해당 년,월의 말일을 구하는 메서드
+
+### EventUtil
 - [ ] 방문 날짜와, 주문 내역을 기반으로 BenefitInfo를 생성 -> Benefit 받아서 리턴
 - [ ] BenefitInfo를 기반으로 Benefit을 생성해서 반환하는 메서드
 
@@ -395,15 +391,15 @@
 ### ErrorMessage
 
 - 에러메세지들을 담을 Enum 클래스이다.
-- [ ] RANGE_ERROR : [ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.
+- [x] RANGE_ERROR : [ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.
     - 날짜를 1~31 이외의 숫자를 입력했을 경우
-- [ ] ORDER_ERROR : [ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.
+- [x] ORDER_ERROR : [ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.
     - 없는 메뉴 입력, 개수(0 이하) 오류, 형식 오류, 중복 오류
-- [ ] SUM_PRICE_ERROR : [ERROR] 총주문 금액 10,000원 이상부터 이벤트가 적용됩니다.
+- [x] SUM_PRICE_ERROR : [ERROR] 총주문 금액 10,000원 이상부터 이벤트가 적용됩니다.
     - 총 주문 금액이 1만을 넘지 않을 경우
-- [ ] BEVERAGE_ERROR : [ERROR] 음료만 주문하실 수 없습니다.
+- [x] BEVERAGE_ERROR : [ERROR] 음료만 주문하실 수 없습니다.
     - 음료만 주문했을 경우
-- [ ] ORDER_COUNT_ERROR : [ERROR] 메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다.
+- [x] ORDER_COUNT_ERROR : [ERROR] 메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다.
     - 20개가 넘는 개수의 메뉴를 주문했을 경우
 
 <br><br>
