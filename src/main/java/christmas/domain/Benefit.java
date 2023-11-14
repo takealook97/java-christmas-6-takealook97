@@ -31,11 +31,14 @@ public class Benefit {
 	}
 
 	private void setDailyDiscount(Order order, boolean isWeekday) {
-		if (isWeekday) {
-			this.weekdayDiscount = order.getCategoryCount(DESSERT) * YEAR_BASED_DISCOUNT.getValue();
-			return;
+		long dessertCount = order.getCategoryCount(DESSERT);
+		long mainCount = order.getCategoryCount(MAIN);
+		if (isWeekday && dessertCount > 0) {
+			this.weekdayDiscount = dessertCount * YEAR_BASED_DISCOUNT.getValue();
+		} else if (!isWeekday && mainCount > 0) {
+			this.weekendDiscount = mainCount * YEAR_BASED_DISCOUNT.getValue();
 		}
-		this.weekendDiscount = order.getCategoryCount(MAIN) * YEAR_BASED_DISCOUNT.getValue();
+
 	}
 
 	private void setSpecialDiscount(boolean isSpecialDay) {
@@ -76,5 +79,9 @@ public class Benefit {
 
 	public long getSumBenefitPrice() {
 		return dDayDiscount + weekdayDiscount + weekendDiscount + specialDiscount + giftMenuPrice;
+	}
+
+	public boolean isAllBlank() {
+		return dDayDiscount == 0 && weekdayDiscount == 0 && weekendDiscount == 0 && specialDiscount == 0 && giftMenuPrice == 0;
 	}
 }

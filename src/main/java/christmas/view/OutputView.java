@@ -23,7 +23,8 @@ public class OutputView {
 			.append("월 ")
 			.append(date.getDayOfMonth())
 			.append("일")
-			.append(EVENT_PREVIEW_MSG.getValue());
+			.append(EVENT_PREVIEW_MSG.getValue())
+			.append("\n");
 	}
 
 	public void stackOrder(Map<Menu, Integer> details) {// 주문 메뉴
@@ -35,7 +36,7 @@ public class OutputView {
 
 	public void stackOrderPriceSum(long orderPriceSum) {// 할인 전 총주문 금액
 		eventResult.append("\n").append(ORDER_PRICE_SUM_HEADER.getValue()).append("\n");
-		eventResult.append(decimalFormat.format(orderPriceSum)).append(CURRENCY).append("\n");
+		eventResult.append(decimalFormat.format(orderPriceSum)).append(CURRENCY.getValue()).append("\n");
 	}
 
 	public void stackBenefit(Benefit benefit, long sumPriceAfterDiscount) {
@@ -55,7 +56,7 @@ public class OutputView {
 			eventResult.append(GIFT.getMenu().getName()).append(" ").append(GIFT.getCount()).append("개\n");
 			return;
 		}
-		eventResult.append(NONE).append("\n");
+		eventResult.append(NONE.getValue()).append("\n");
 	}
 
 	private void stackBenefitDetails(Benefit benefit) {
@@ -64,6 +65,9 @@ public class OutputView {
 		stackDailyDiscount(benefit.getWeekdayDiscount(), benefit.getWeekendDiscount());
 		stackSpecialDiscount(benefit.getSpecialDiscount());
 		stackGiftPrice(benefit.getGiftMenuPrice());
+		if (benefit.isAllBlank()) {
+			eventResult.append(NONE.getValue());
+		}
 		eventResult.append("\n");
 	}
 
@@ -80,9 +84,9 @@ public class OutputView {
 	private void stackDailyDiscount(long weekdayDiscount, long weekendDiscount) {
 		if (weekdayDiscount > 0) {
 			eventResult.append(getDiscountDetail(WEEKDAY_DISCOUNT_MSG.getValue(), weekdayDiscount));
-			return;
+		} else if (weekendDiscount > 0) {
+			eventResult.append(getDiscountDetail(WEEKEND_DISCOUNT_MSG.getValue(), weekendDiscount));
 		}
-		eventResult.append(getDiscountDetail(WEEKEND_DISCOUNT_MSG.getValue(), weekendDiscount));
 	}
 
 	private void stackSpecialDiscount(long specialDiscount) {
@@ -98,12 +102,15 @@ public class OutputView {
 	}
 
 	private void stackSumBenefitPrice(long sumBenefitPrice) {
-		eventResult.append(BENEFIT_PRICE_SUM_HEADER.getValue()).append("\n")
-			.append("-").append(sumBenefitPrice).append(CURRENCY.getValue());
+		eventResult.append("\n").append(BENEFIT_PRICE_SUM_HEADER.getValue()).append("\n");
+		if (sumBenefitPrice > 0) {
+			eventResult.append("-");
+		}
+		eventResult.append(sumBenefitPrice).append(CURRENCY.getValue()).append("\n");
 	}
 
 	private void stackSumPriceAfterDiscount(long sumPriceAfterDiscount) {
-		eventResult.append(AFTER_DISCOUNT_HEADER.getValue()).append("\n")
+		eventResult.append("\n").append(AFTER_DISCOUNT_HEADER.getValue()).append("\n")
 			.append(sumPriceAfterDiscount).append("\n");
 	}
 
