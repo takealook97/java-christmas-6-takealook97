@@ -263,14 +263,6 @@
 
 ## 💡constant (도메인에 활용할 상수)
 
-### EventTime
-
-- 이벤트가 진행되는 시기를 설정할 Enum으로, 시작날짜, 종료 날짜 정보 또한 가진다.
-- [x] EVENT_YEAR
-- [x] EVENT_MONTH
-- [x] EVENT_START_DAY
-- [x] EVENT_END_DAY
-
 ### OrderConstant
 
 - 주문 입력 시 활용할 Enum
@@ -309,6 +301,14 @@
 <br>
 
 ## 💡constant (전역적으로 활용될 상수)
+
+### EventTime
+
+- 이벤트가 진행되는 시기를 설정할 Enum으로, 시작날짜, 종료 날짜 정보 또한 가진다.
+- [x] EVENT_YEAR
+- [x] EVENT_MONTH
+- [x] EVENT_START_DAY
+- [x] EVENT_END_DAY
 
 ### Category
 

@@ -1,4 +1,4 @@
-package christmas.domain.constant;
+package christmas.constant;
 
 import static christmas.utility.DateUtil.*;
 
