@@ -15,7 +15,7 @@ public enum OutputConstant {
 	GIFT_EVENT_MSG("증정 이벤트: "),
 	BENEFIT_PRICE_SUM_HEADER("<총혜택 금액>"),
 	AFTER_DISCOUNT_HEADER("<할인 후 예상 결제 금액>"),
-	EVENT_BADGE_HEADER("<" + EVENT_MONTH + "월 이벤트 배지>"),
+	EVENT_BADGE_HEADER("<" + EVENT_MONTH.getValue() + "월 이벤트 배지>"),
 	NONE("없음"),
 	PRICE_PATTERN("#,###"),
 	CURRENCY("원");
