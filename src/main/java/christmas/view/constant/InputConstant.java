@@ -1,6 +1,6 @@
 package christmas.view.constant;
 
-import static christmas.constant.EventTime.*;
+import static christmas.constant.EventYearAndMonth.*;
 
 public enum InputConstant {
 	INIT_MSG("안녕하세요! 우테코 식당 " + EVENT_MONTH + "월 이벤트 플래너입니다."),

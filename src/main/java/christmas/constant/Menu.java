@@ -40,7 +40,7 @@ public enum Menu {
 		return price;
 	}
 
-	public Menu of(String name) {
+	public static Menu of(String name) {
 		return Arrays.stream(Menu.values())
 			.filter(menu -> menu.getName().equals(name))
 			.findFirst()

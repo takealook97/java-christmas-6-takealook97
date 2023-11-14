@@ -1,6 +1,6 @@
 package christmas.domain.constant;
 
-import static christmas.constant.EventTime.*;
+import static christmas.constant.EventYearAndMonth.*;
 
 public enum BenefitConstant {
 	D_DAY(25),

@@ -155,53 +155,51 @@
 ### VisitDate
 
 - 방문 날짜를 담을 클래스
-- [ ] LocalDate date
+- [x] LocalDate date
     - LocalDate에 날짜를 담는다.
-- [ ] ```public int getDay();```
+- [x] ```public int getDay();```
     - getDayOfMonth 메서드를 활용해서 일자를 반환한다.
-- [ ] ```public String getWeekDay();```
+- [x] ```public String getDayOfTheWeek();```
     - getDayOfWeek 메서드를 활용해서 요일을 반환한다.
-- [ ] 유효성 판단 메서드
-    - 형식 판단
+- [x] 유효성 판단 메서드
     - 입력이 1~31 사이인지 판단
 
 ### Order
 
 - 주문 내역을 담을 클래스
-- [ ] ```Map<Menu, Integer> details;```
+- [x] ```Map<Menu, Integer> details;```
     - 사용자의 입력 순서를 그대로 반영하기 위해 LinkedHashMap을 활용한다.
     - key에는 메뉴, value에는 개수를 담는다.
-- [ ] getter
-- [ ] ```public long getPriceSum()```
+- [x] getter
+- [x] ```public long getPriceSum()```
     - 할인 전 총주문 금액을 반환한다.
-- [ ] 유효성 판단 메서드
+- [x] 유효성 판단 메서드
     - key에 들어오는 메뉴 이름이 존재하는 메뉴인지 판단
     - value에 들어오는 숫자가 0 이상인지 판단
-    - 중복 판단
     - 메뉴 총 개수가 20개 이하인지 판단
     - 중복해서 입력을 했는지 판단
 
 ### Benefit
 
 - 할인 금액 및 증정 메뉴 가격을 담을 클래스
-- [ ] ```long dDayDiscount```
-- [ ] ```long weekdayDiscount```
-- [ ] ```long weekendDiscount```
-- [ ] ```long specialDiscount```
-- [ ] ```Menu giftMenu```
-- [ ] 증정 메뉴 반환 메서드
-- [ ] 디데이 할인 금액 반환 메서드
-- [ ] 평일/주말 할인 금액 반환 메서드
-- [ ] 특별 할인 금액 반환 메서드
-- [ ] 증정 이벤트 금액 반환 메서드
-- [ ] 총할인 금액 반환 메서드
-- [ ] 총혜택 금액 반환 메서드
+- [x] ```long dDayDiscount```
+- [x] ```long weekdayDiscount```
+- [x] ```long weekendDiscount```
+- [x] ```long specialDiscount```
+- [x] ```long giftPrice```
+- [x] 증정 메뉴 반환 메서드
+- [x] 디데이 할인 금액 반환 메서드
+- [x] 평일/주말 할인 금액 반환 메서드
+- [x] 특별 할인 금액 반환 메서드
+- [x] 증정 이벤트 금액 반환 메서드
+- [x] 총할인 금액 반환 메서드
+- [x] 총혜택 금액 반환 메서드
 
 ### Badge
 
 - 예약에 따라 어느 배지를 받는지 정보를 담을 클래스
-- [ ] ```String badgeName```
-- [ ] getter
+- [x] ```String badgeName```
+- [x] getter
 
 <br>
 
@@ -210,13 +208,13 @@
 ### BenefitInfo
 
 - 방문 날짜와 주문 내역을 보고 할인 별 적용 여부를 담을 dto이다.
-- [ ] ```boolean isDdayOrBefore```
+- [x] ```boolean isDDayOrBefore```
     - 1~25일인지 여부
-- [ ] ```boolean isWeekdayDiscount```
+- [x] ```boolean isWeekdayDiscount```
     - 평일 여부 -> false일 경우 주말
-- [ ] ```boolean isSpecialDiscount```
+- [x] ```boolean isSpecialDiscount```
     - 달력에 별이 있는지 여부 (일요일 or 크리스마스)
-- [ ] ```boolean isQualifiedForGift```
+- [x] ```boolean isQualifiedForGift```
     - 증정 메뉴(샴페인)를 받을 자격이 있는지 여부 (12만원 이상의 주문이 발생했는지 판단)
 
 <br>
@@ -391,7 +389,7 @@
 ### ErrorMessage
 
 - 에러메세지들을 담을 Enum 클래스이다.
-- [x] RANGE_ERROR : [ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.
+- [x] DAY_ERROR : [ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.
     - 날짜를 1~31 이외의 숫자를 입력했을 경우
 - [x] ORDER_ERROR : [ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.
     - 없는 메뉴 입력, 개수(0 이하) 오류, 형식 오류, 중복 오류
