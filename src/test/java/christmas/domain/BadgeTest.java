@@ -10,27 +10,27 @@ public class BadgeTest {
 	void badgeName_별() {
 		long sumBenefit = 5000;
 		Badge badge = new Badge(sumBenefit);
-		assertEquals("별", badge.getBadgeName());
+		assertEquals("별", badge.getName());
 	}
 
 	@Test
 	void badgeName_트리() {
 		long sumBenefit = 10000;
 		Badge badge = new Badge(sumBenefit);
-		assertEquals("트리", badge.getBadgeName());
+		assertEquals("트리", badge.getName());
 	}
 
 	@Test
 	void badgeName_산타() {
 		long sumBenefit = 25000;
 		Badge badge = new Badge(sumBenefit);
-		assertEquals("산타", badge.getBadgeName());
+		assertEquals("산타", badge.getName());
 	}
 
 	@Test
 	void badgeName_Null() {
 		long sumBenefit = 1000;
 		Badge badge = new Badge(sumBenefit);
-		assertNull(badge.getBadgeName());
+		assertNull(badge.getName());
 	}
 }
