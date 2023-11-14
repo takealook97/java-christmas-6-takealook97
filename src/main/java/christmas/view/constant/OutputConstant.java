@@ -9,7 +9,7 @@ public enum OutputConstant {
 	GIFT_MENU_HEADER("<증정 메뉴>"),
 	BENEFIT_HEADER("<혜택 내역>"),
 	D_DAY_DISCOUNT_MSG("크리스마스 디데이 할인: "),
-	WEEK_DAY_DISCOUNT_MSG("평일 할인: "),
+	WEEKDAY_DISCOUNT_MSG("평일 할인: "),
 	WEEKEND_DISCOUNT_MSG("주말 할인: "),
 	SPECIAL_DISCOUNT_MSG("특별 할인: "),
 	GIFT_EVENT_MSG("증정 이벤트: "),
