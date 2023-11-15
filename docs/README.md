@@ -146,7 +146,7 @@
 
 ### Application
 
-- [ ] 게임 실행
+- [x] 게임 실행
 
 <br>
 
@@ -223,14 +223,14 @@
 
 ### EventController
 
-- [ ] run 메서드
+- [x] run 메서드
     - 날짜 입력 받기
     - 주문 입력 받기
     - 주문 결과 및 혜택 보여주기
     - 배지 수령 정보 보여주기
-- [ ] 주문 결과 도출 메서드
-- [ ] 혜택 도출 메서드
-- [ ] 배지 정보 도출 메서드
+- [x] 주문 결과 도출 메서드
+- [x] 혜택 도출 메서드
+- [x] 배지 정보 도출 메서드
 
 <br>
 
@@ -330,17 +330,17 @@
 ### InputView
 
 - 입력과 입력에 대한 출력을 담당하는 클래스이다.
-- [ ] 예약일 요청을 출력하는 메서드
-- [ ] 주문 요청을 출력하는 메서드
-- [ ] 입력을 받아서 Map형태로 반환하는 메서드
+- [x] 예약일 요청을 출력하는 메서드
+- [x] 주문 요청을 출력하는 메서드
+- [x] 입력을 받아서 Map형태로 반환하는 메서드
     - 기본적으로 빈 문자열 체크 및 형식 체크만 하도록 한다.
 
 ### OutputView
 
 - 출력을 담당하는 클래스이다.
-- [ ] 미리보기 메세지 출력 메서드
-- [ ] 주문 메뉴, 할인 전 총주문 금액, 증정 메뉴, 혜택 내역, 총혜택 금액, 할인 후 예상 결제 금액, 12월 이벤트 배지 출력메서드 (각각 구성)
-- [ ] `OutputConstant`를 활용하여 `System.out.println()`을 통해 출력을 한다.
+- [x] 미리보기 메세지 출력 메서드
+- [x] 주문 메뉴, 할인 전 총주문 금액, 증정 메뉴, 혜택 내역, 총혜택 금액, 할인 후 예상 결제 금액, 12월 이벤트 배지 출력메서드 (각각 구성)
+- [x] `OutputConstant`를 활용하여 `System.out.println()`을 통해 출력을 한다.
 
 ### InputConstant
 
@@ -379,6 +379,9 @@
 ### DateUtil
 - [x] 해당 년,월의 말일을 구하는 메서드
 
+### InputValidation
+- [x] 주문 입력에 대한 유효성 검증을 하는 메서드
+
 <br>
 
 ## 💡 Exception
@@ -390,8 +393,6 @@
     - 날짜를 1~31 이외의 숫자를 입력했을 경우
 - [x] ORDER_ERROR : [ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.
     - 없는 메뉴 입력, 개수(0 이하) 오류, 형식 오류, 중복 오류
-- [x] SUM_PRICE_ERROR : [ERROR] 총주문 금액 10,000원 이상부터 이벤트가 적용됩니다.
-    - 총 주문 금액이 1만을 넘지 않을 경우
 - [x] BEVERAGE_ERROR : [ERROR] 음료만 주문하실 수 없습니다.
     - 음료만 주문했을 경우
 - [x] ORDER_COUNT_ERROR : [ERROR] 메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다.
@@ -404,4 +405,30 @@
 📠 TEST
 =
 
+- [x] 방문 날짜 테스트  
+  <img src="./assets/date_test.png">  
+  <br>
 
+- [x] 주문 테스트  
+  <img src="./assets/order_test.png">  
+  <br>
+
+- [x] 혜택 테스트  
+  <img src="./assets/benefit_test.png">  
+  <br>
+
+- [x] 배지 테스트  
+  <img src="./assets/badge_test.png">  
+  <br>
+
+- [x] 서비스 테스트  
+  <img src="./assets/service_test.png">  
+  <br>
+
+- [x] 입력 유효성 검증 테스트  
+  <img src="./assets/validation_test.png">  
+  <br>
+
+- [x] 메인 테스트  
+  <img src="./assets/main_test.png">  
+  <br>
