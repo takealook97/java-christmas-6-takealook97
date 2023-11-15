@@ -8,26 +8,27 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class InputValidation {
-	public static Map<String, Integer> validatePairs(String[] pairs) throws IllegalArgumentException {
+	private static final int KEY_IDX = 0, VALUE_IDX = 1, KEY_VALUE_LENGTH = 2;
+	private static final String NUMBER_REGEX = "\\d+";
+
+	public static Map<String, Integer> validatePairs(String[] pairs) {
 		return Arrays.stream(pairs)
-			.map(pair -> {
-				String[] keyValue = pair.split(MENU_COUNT_SEPARATOR.getValue());
-				if (keyValue.length != 2 || !keyValue[1].matches("\\d+")) {
+			.map(String::trim)
+			.map(pair -> pair.split(MENU_COUNT_SEPARATOR.getValue()))
+			.peek(InputValidation::validatePair)
+			.collect(Collectors.toMap(
+				keyValue -> keyValue[KEY_IDX],
+				keyValue -> Integer.parseInt(keyValue[VALUE_IDX]),
+				(existingValue, newValue) -> {
 					throw new IllegalArgumentException(ORDER_ERROR.getMessage());
 				}
-				return keyValue;
-			})
-			.collect(Collectors.toMap(
-				keyValue -> keyValue[0],
-				keyValue -> parseCount(keyValue[1])
 			));
 	}
 
-	private static int parseCount(String countStr) throws IllegalArgumentException {
-		int count = Integer.parseInt(countStr);
-		if (count <= 0) {
+	private static void validatePair(String[] keyValue) {
+		if (keyValue.length != KEY_VALUE_LENGTH || !keyValue[VALUE_IDX].matches(NUMBER_REGEX)
+			|| Integer.parseInt(keyValue[VALUE_IDX]) <= 0) {
 			throw new IllegalArgumentException(ORDER_ERROR.getMessage());
 		}
-		return count;
 	}
 }
