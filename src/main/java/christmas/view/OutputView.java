@@ -72,7 +72,7 @@ public class OutputView {
 	}
 
 	private String getDiscountDetail(String msg, long discountPrice) {
-		return msg + "-" + decimalFormat.format(discountPrice) + CURRENCY.getValue() + "\n";
+		return msg + "-" + decimalFormat.format(discountPrice) + CURRENCY.getValue();
 	}
 
 	private void stackDDayDiscount(long dDayDiscount) {
@@ -106,12 +106,12 @@ public class OutputView {
 		if (sumBenefitPrice > 0) {
 			eventResult.append("-");
 		}
-		eventResult.append(sumBenefitPrice).append(CURRENCY.getValue()).append("\n");
+		eventResult.append(decimalFormat.format(sumBenefitPrice)).append(CURRENCY.getValue()).append("\n");
 	}
 
 	private void stackSumPriceAfterDiscount(long sumPriceAfterDiscount) {
 		eventResult.append("\n").append(AFTER_DISCOUNT_HEADER.getValue()).append("\n")
-			.append(sumPriceAfterDiscount).append("\n");
+			.append(decimalFormat.format(sumPriceAfterDiscount)).append(CURRENCY.getValue()).append("\n");
 	}
 
 	public void printResult() {
