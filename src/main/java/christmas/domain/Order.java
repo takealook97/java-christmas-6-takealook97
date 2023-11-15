@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import static christmas.constant.Category.*;
 import static christmas.domain.constant.OrderConstant.*;
 import static christmas.exception.ErrorMessage.*;
 
@@ -38,7 +39,21 @@ public class Order {
 
 	private Map<Menu, Integer> validate(Map<String, Integer> map) throws IllegalArgumentException {
 		validateCount(map);
-		return validateMenu(map);
+		Map<Menu, Integer> order = validateMenu(map);
+		validateBeverage(order);
+		return order;
+	}
+
+	private void validateCount(Map<String, Integer> map) throws IllegalArgumentException {
+		int countSum = 0;
+		for (int count : map.values()) {
+			countSum += count;
+			if (count <= 0) {
+				throw new IllegalArgumentException(ORDER_ERROR.getMessage());
+			} else if (countSum > ORDER_AMOUNT_LIMIT.getValue()) {
+				throw new IllegalArgumentException(ORDER_COUNT_ERROR.getMessage());
+			}
+		}
 	}
 
 	private Map<Menu, Integer> validateMenu(Map<String, Integer> map) throws IllegalArgumentException {
@@ -52,13 +67,11 @@ public class Order {
 			));
 	}
 
-	private void validateCount(Map<String, Integer> map) throws IllegalArgumentException {
-		int countSum = 0;
-		for (int count : map.values()) {
-			countSum += count;
-			if (count <= 0 || countSum > ORDER_AMOUNT_LIMIT.getValue()) {
-				throw new IllegalArgumentException(ORDER_ERROR.getMessage());
-			}
+	private void validateBeverage(Map<Menu, Integer> order) throws IllegalArgumentException {
+		boolean allBeverages = order.keySet().stream()
+			.allMatch(menu -> menu.getCategory() == BEVERAGE);
+		if (allBeverages) {
+			throw new IllegalArgumentException(BEVERAGE_ERROR.getMessage());
 		}
 	}
 }

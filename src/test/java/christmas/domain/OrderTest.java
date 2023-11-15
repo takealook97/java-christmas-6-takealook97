@@ -15,10 +15,11 @@ class OrderTest {
 		Map<String, Integer> orderMap = new HashMap<>();
 		orderMap.put("양송이수프", 2);
 		orderMap.put("타파스", 1);
+		orderMap.put("티본스테이크", 1); // 가격 합계 이벤트 시작 가격 이상
 
 		Order order = new Order(orderMap);
 
-		long expectedTotal = 6000 * 2 + 5500;
+		long expectedTotal = 6000 * 2 + 5500 + 55000;
 		assertEquals(expectedTotal, order.getPriceSum());
 	}
 
@@ -54,5 +55,23 @@ class OrderTest {
 
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> new Order(orderMap));
 		assertEquals(ORDER_ERROR.getMessage(), exception.getMessage());
+	}
+
+	@Test
+	void 주문_음료만_포함_유효성_검사_테스트() {
+		Map<String, Integer> orderMap = new HashMap<>();
+		orderMap.put("제로콜라", 2);
+		orderMap.put("레드와인", 1); // 주문이 음료만 포함
+
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> new Order(orderMap));
+		assertEquals(BEVERAGE_ERROR.getMessage(), exception.getMessage());
+	}
+
+	@Test
+	void 유효한_주문_테스트() {
+		Map<String, Integer> orderMap = new HashMap<>();
+		orderMap.put("티본스테이크", 1); // 유효한 주문 (메인 카테고리, 적절한 가격)
+
+		assertDoesNotThrow(() -> new Order(orderMap));
 	}
 }
