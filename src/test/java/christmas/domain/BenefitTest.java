@@ -15,7 +15,10 @@ class BenefitTest {
 	@Test
 	void 디데이_할인_계산_테스트() {
 		VisitDate visitDate = new VisitDate(24);
-		Order order = new Order(new HashMap<>());
+		Map<String, Integer> orderDetails = new HashMap<>();
+		orderDetails.put("초코케이크", 2); // 디저트 카테고리
+		orderDetails.put("티본스테이크", 1); // 메인 카테고리
+		Order order = new Order(orderDetails);
 		BenefitInfo benefitInfo = new BenefitInfo(true, false, false, false);
 
 		Benefit benefit = new Benefit(visitDate, order, benefitInfo);
@@ -56,7 +59,10 @@ class BenefitTest {
 	@Test
 	void 특별_할인_계산_테스트() {
 		VisitDate visitDate = new VisitDate(25);
-		Order order = new Order(new HashMap<>());
+		Map<String, Integer> orderDetails = new HashMap<>();
+		orderDetails.put("초코케이크", 2); // 디저트 카테고리
+		orderDetails.put("티본스테이크", 1); // 메인 카테고리
+		Order order = new Order(orderDetails);
 		BenefitInfo benefitInfo = new BenefitInfo(false, false, true, false);
 
 		Benefit benefit = new Benefit(visitDate, order, benefitInfo);
@@ -68,7 +74,10 @@ class BenefitTest {
 	@Test
 	void 선물_메뉴_가격_계산_테스트() {
 		VisitDate visitDate = new VisitDate(25);
-		Order order = new Order(new HashMap<>());
+		Map<String, Integer> orderDetails = new HashMap<>();
+		orderDetails.put("초코케이크", 2); // 디저트 카테고리
+		orderDetails.put("티본스테이크", 1); // 메인 카테고리
+		Order order = new Order(orderDetails);
 		BenefitInfo benefitInfo = new BenefitInfo(false, false, false, true);
 
 		Benefit benefit = new Benefit(visitDate, order, benefitInfo);
